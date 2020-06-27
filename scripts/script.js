@@ -54,11 +54,16 @@ function setupNewGridButton() {
     btn.addEventListener('click', promptForSize);
 
     function promptForSize() {
-        const size = prompt('How many squares per size?', '0');
+        let size = prompt('How many squares per size?', '0');
 
         if (size == null) return;
 
-        if (!size || size <= 0) {
+        size = Number(size);
+
+        if (isNaN(size)) {
+            alert('Please enter a number.');
+            return;
+        } else if (size <= 0) {
             alert('Grid cannot be empty.');
             return;
         }
