@@ -2,7 +2,6 @@ createGrid(16);
 
 function createGrid(size) {
     const container = document.querySelector('.grid-container');
-    const numCells = size * size;
 
     for (let i = 0; i < size; i++) {
         for (let j = 0; j < size; j++) {
@@ -15,6 +14,8 @@ function createGrid(size) {
             if (i == size - 1) {
                 div.classList.add('no-border-bottom');
             }
+
+            div.addEventListener('mouseenter', changeBackgroundColor);
     
             container.appendChild(div);
         }    
@@ -24,4 +25,8 @@ function createGrid(size) {
         grid-template-columns: repeat(${size}, 1fr);
         grid-template-rows: repeat(${size}, 1fr);
     `;
+}
+
+function changeBackgroundColor(e) {
+    e.target.style.backgroundColor = 'black';
 }
