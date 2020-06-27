@@ -10,12 +10,12 @@ function newGrid(size) {
         for (let j = 0; j < size; j++) {
             const div = document.createElement('div');
 
-            if (j == size - 1) {
-                div.classList.add('no-border-right');
+            if (j != size - 1) {
+                div.classList.add('cell-border-right');
             }
-    
-            if (i == size - 1) {
-                div.classList.add('no-border-bottom');
+
+            if (i != size - 1) {
+                div.classList.add('cell-border-bottom');
             }
 
             div.addEventListener('mouseenter', shadeNode);

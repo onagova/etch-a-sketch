@@ -1,25 +1,27 @@
+body {
+    text-align: center;
+}
+
+.children-fit-container {
+    display: inline-block;
+    text-align: start;
+}
+
 .grid-container {
     display: grid;
     width: 720px;
     height: 720px;
-    margin: 0 auto;
     border: 2px solid black;
 }
 
-.grid-container > div {
-    border-right: 1px dashed rgb(200, 200, 200);
-    border-bottom: 1px dashed rgb(200, 200, 200);
+.grid-container > div.cell-border-right {
+    border-right: 1px dotted rgb(200, 200, 200);
 }
 
-.grid-container > div.no-border-right {
-    border-right: none;
-}
-
-.grid-container > div.no-border-bottom {
-    border-bottom: none;
+.grid-container > div.cell-border-bottom {
+    border-bottom: 1px dotted rgb(200, 200, 200);
 }
 
 #new-grid-btn {
-    display: block;
-    margin: 0 auto 8px auto;
+    margin-bottom: 8px;
 }
