@@ -18,3 +18,8 @@
 .grid-container > div.no-border-bottom {
     border-bottom: none;
 }
+
+#new-grid-btn {
+    display: block;
+    margin: 0 auto 8px auto;
+}

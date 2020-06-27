@@ -1,7 +1,10 @@
-createGrid(16);
+newGrid(16);
+setupNewGridButton();
 
-function createGrid(size) {
+function newGrid(size) {
     const container = document.querySelector('.grid-container');
+
+    removeChildAll(container);
 
     for (let i = 0; i < size; i++) {
         for (let j = 0; j < size; j++) {
@@ -25,8 +28,32 @@ function createGrid(size) {
         grid-template-columns: repeat(${size}, 1fr);
         grid-template-rows: repeat(${size}, 1fr);
     `;
+
+    function changeBackgroundColor(e) {
+        e.target.style.backgroundColor = 'black';
+    }
 }
 
-function changeBackgroundColor(e) {
-    e.target.style.backgroundColor = 'black';
+function removeChildAll(node) {
+    while (node.lastElementChild) {
+        node.removeChild(node.lastElementChild);
+    }
+}
+
+function setupNewGridButton() {
+    const btn = document.querySelector('#new-grid-btn');
+    btn.addEventListener('click', promptForSize);
+
+    function promptForSize() {
+        const size = prompt('How many squares per size?', '0');
+
+        if (size == null) return;
+
+        if (!size || size <= 0) {
+            alert('Grid cannot be empty.');
+            return;
+        }
+
+        newGrid(size);
+    }
 }
